@@ -11,6 +11,7 @@ struct ContentView: View {
     @State private var value1 = ""
     @State private var value2 = ""
     @State private var value3 = ""
+    @State private var showAlert = false
     
     var body: some View {
         VStack {
@@ -22,6 +23,7 @@ struct ContentView: View {
             Button(action: {
                 // Action for button tap
                 print("Button tapped!")
+                showAlert = true
             }) {
                 Text("My Button")
                     .foregroundColor(.white)
@@ -54,6 +56,16 @@ struct ContentView: View {
             
         }
         .padding()
+        .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("Alert Title"),
+                message: Text("Values entered:\nValue 1: \(value1)\nValue 2: \(value2)\nValue 3: \(value3)"),
+                primaryButton: .default(Text("OK")) {
+                    // Handle OK button action
+                },
+                secondaryButton: .cancel()
+            )
+        }
     }
 }
 
