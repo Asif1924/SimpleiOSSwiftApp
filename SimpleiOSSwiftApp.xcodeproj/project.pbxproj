@@ -14,6 +14,8 @@
 		74F97D212BA9BD30009EA4F1 /* SimpleiOSSwiftAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F97D202BA9BD30009EA4F1 /* SimpleiOSSwiftAppTests.swift */; };
 		74F97D2B2BA9BD30009EA4F1 /* SimpleiOSSwiftAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F97D2A2BA9BD30009EA4F1 /* SimpleiOSSwiftAppUITests.swift */; };
 		74F97D2D2BA9BD30009EA4F1 /* SimpleiOSSwiftAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F97D2C2BA9BD30009EA4F1 /* SimpleiOSSwiftAppUITestsLaunchTests.swift */; };
+		74F97D3A2BAEA4E4009EA4F1 /* Fib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F97D392BAEA4E4009EA4F1 /* Fib.swift */; };
+		74F97D3B2BAEA4E4009EA4F1 /* Fib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F97D392BAEA4E4009EA4F1 /* Fib.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,7 @@
 		74F97D262BA9BD30009EA4F1 /* SimpleiOSSwiftAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleiOSSwiftAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F97D2A2BA9BD30009EA4F1 /* SimpleiOSSwiftAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleiOSSwiftAppUITests.swift; sourceTree = "<group>"; };
 		74F97D2C2BA9BD30009EA4F1 /* SimpleiOSSwiftAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleiOSSwiftAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		74F97D392BAEA4E4009EA4F1 /* Fib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fib.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,7 @@
 		74F97D0E2BA9BD2E009EA4F1 /* SimpleiOSSwiftApp */ = {
 			isa = PBXGroup;
 			children = (
+				74F97D392BAEA4E4009EA4F1 /* Fib.swift */,
 				74F97D0F2BA9BD2E009EA4F1 /* SimpleiOSSwiftAppApp.swift */,
 				74F97D112BA9BD2E009EA4F1 /* ContentView.swift */,
 				74F97D132BA9BD30009EA4F1 /* Assets.xcassets */,
@@ -258,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74F97D122BA9BD2E009EA4F1 /* ContentView.swift in Sources */,
+				74F97D3A2BAEA4E4009EA4F1 /* Fib.swift in Sources */,
 				74F97D102BA9BD2E009EA4F1 /* SimpleiOSSwiftAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74F97D212BA9BD30009EA4F1 /* SimpleiOSSwiftAppTests.swift in Sources */,
+				74F97D3B2BAEA4E4009EA4F1 /* Fib.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
