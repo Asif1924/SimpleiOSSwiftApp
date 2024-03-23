@@ -24,6 +24,15 @@ final class SimpleiOSSwiftAppTests: XCTestCase {
         // Call the method on the instance
         XCTAssertNotNil(fib)
     }
+
+    func testFib0Equals0() throws {
+        let fibValue = Fib.doFib(upTo: 0)
+
+        // Call the method on the instance
+        //XCTAssertNotNil(fib)
+        XCTAssertEqual(0, fibValue)
+    }
+  
     
     func testExample() throws {
         // This is an example of a functional test case.
