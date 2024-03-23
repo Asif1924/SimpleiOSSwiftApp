@@ -32,7 +32,62 @@ final class SimpleiOSSwiftAppTests: XCTestCase {
         //XCTAssertNotNil(fib)
         XCTAssertEqual(0, fibValue)
     }
+
+    func testFib1Equals1() throws {
+        let fibValue = Fib.doFib(upTo: 1)
+
+        // Call the method on the instance
+        //XCTAssertNotNil(fib)
+        XCTAssertEqual(1, fibValue)
+    }
   
+    func testFib2Equals1() throws {
+        let fibValue = Fib.doFib(upTo: 2)
+
+        // Call the method on the instance
+        //XCTAssertNotNil(fib)
+        XCTAssertEqual(1, fibValue)
+    }
+  
+    func testFib3Equals2() throws {
+        let fibValue = Fib.doFib(upTo: 3)
+
+        // Call the method on the instance
+        //XCTAssertNotNil(fib)
+        XCTAssertEqual(2, fibValue)
+    }
+ 
+    func testFib4Equals3() throws {
+        let fibValue = Fib.doFib(upTo: 4)
+
+        // Call the method on the instance
+        //XCTAssertNotNil(fib)
+        XCTAssertEqual(3, fibValue)
+    }
+    
+    func testFib5Equals5() throws {
+        let fibValue = Fib.doFib(upTo: 5)
+
+        // Call the method on the instance
+        //XCTAssertNotNil(fib)
+        XCTAssertEqual(5, fibValue)
+    }
+    
+    func testFib6Equals8() throws {
+        let fibValue = Fib.doFib(upTo: 6)
+
+        // Call the method on the instance
+        //XCTAssertNotNil(fib)
+        XCTAssertEqual(8, fibValue)
+    }
+    
+    func testFib7Equals13() throws {
+        let fibValue = Fib.doFib(upTo: 7)
+
+        // Call the method on the instance
+        //XCTAssertNotNil(fib)
+        XCTAssertEqual(13, fibValue)
+    }
     
     func testExample() throws {
         // This is an example of a functional test case.
