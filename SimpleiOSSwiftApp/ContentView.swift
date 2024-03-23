@@ -46,6 +46,12 @@ struct ContentView: View {
                         .textContentType(.oneTimeCode)
                 }
             }
+            
+            Gauge(value: /*@START_MENU_TOKEN@*/0.5/*@END_MENU_TOKEN@*/, in: /*@START_MENU_TOKEN@*/0...1/*@END_MENU_TOKEN@*/) {
+                /*@START_MENU_TOKEN@*/Text("Label")/*@END_MENU_TOKEN@*/
+            }
+
+            
         }
         .padding()
     }
