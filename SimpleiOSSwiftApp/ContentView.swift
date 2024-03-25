@@ -12,6 +12,8 @@ struct ContentView: View {
     @State private var value2 = ""
     @State private var value3 = ""
     @State private var showAlert = false
+    @State private var callAPI = false
+    @State private var apiResponse = ""
     
     var body: some View {
         VStack {
@@ -26,6 +28,20 @@ struct ContentView: View {
                 showAlert = true
             }) {
                 Text("My Button")
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(width: 200, height: 50)
+                    .background(Color.gray)
+                    .cornerRadius(8)
+                    .shadow(color: .black, radius: 4, x: 0, y: 2)
+            }
+            Button(action: {
+                // Action for button tap
+                print("API tapped!")
+                Network().makePOSTRequest()
+                callAPI = true
+            }) {
+                Text("API")
                     .foregroundColor(.white)
                     .padding()
                     .frame(width: 200, height: 50)
@@ -49,7 +65,7 @@ struct ContentView: View {
                 }
             }
             
-            Gauge(value: /*@START_MENU_TOKEN@*/0.5/*@END_MENU_TOKEN@*/, in: /*@START_MENU_TOKEN@*/0...1/*@END_MENU_TOKEN@*/) {
+            Gauge(value: 0.8, in: /*@START_MENU_TOKEN@*/0...1/*@END_MENU_TOKEN@*/) {
                 /*@START_MENU_TOKEN@*/Text("Label")/*@END_MENU_TOKEN@*/
             }
 
@@ -66,6 +82,101 @@ struct ContentView: View {
                 secondaryButton: .cancel()
             )
         }
+        .alert(isPresented: $callAPI) {
+            Alert(
+                title: Text("API Called"),
+                message: Text("Response: "),
+                primaryButton: .default(Text("OK")) {
+                    // Handle OK button action
+                },
+                secondaryButton: .cancel()
+            )
+        }
+    }
+}
+
+struct Network {
+    func makeGETRequest() {
+        // URL
+        guard let url = URL(string: "http://localhost:9786/api/hello") else {
+            print("Invalid URL")
+            return
+        }
+        
+        // Create URLSession
+        let session = URLSession.shared
+        
+        // Create URLSessionDataTask
+        let task = session.dataTask(with: url) { (data, response, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            // Check if response contains data
+            guard let responseData = data else {
+                print("No data received")
+                return
+            }
+            
+            // Convert data to string (or perform any other parsing you need)
+            if let responseString = String(data: responseData, encoding: .utf8) {
+                print("Response: \(responseString)") 
+            }
+        }
+        
+        // Resume the task
+        task.resume()
+    }
+    
+    func makePOSTRequest() {
+        // URL
+        guard let url = URL(string: "http://localhost:9786/api/hello") else {
+            print("Invalid URL")
+            return
+        }
+        
+        // Request parameters
+        let parameters = ["name": "Asif"]
+        
+        // Convert parameters to Data
+        guard let postData = try? JSONSerialization.data(withJSONObject: parameters) else {
+            print("Error encoding parameters")
+            return
+        }
+        
+        // Create URLRequest
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = postData
+        
+        // Create URLSession
+        let session = URLSession.shared
+        
+        // Create URLSessionDataTask
+        let task = session.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+            
+            // Check if response contains data
+            guard let responseData = data else {
+                print("No data received")
+                return
+            }
+            
+            // Convert data to string (or perform any other parsing you need)
+            if let responseString = String(data: responseData, encoding: .utf8) {
+                print("Response: \(responseString)")
+                
+            }
+            
+        }
+        
+        // Resume the task
+        task.resume()
     }
 }
 
